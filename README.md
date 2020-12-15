@@ -7,4 +7,4 @@ PhotoBooth for Party selfies with a Raspberry Pi and RPi Camera written in Pytho
 # 
 
 ### default event image 
-[https://flic.kr/p/LhSZBG](assets/background/event.png)
+[event.png](assets/background/event.png) resized in 4:3. [Original Flickr image](https://flic.kr/p/LhSZBG)
