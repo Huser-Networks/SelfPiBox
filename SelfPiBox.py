@@ -16,7 +16,7 @@ from datetime import datetime
 scriptPath = "/opt/SelfPiBox"
 imageFolder = 'selfies'
 
-logFolder = 'logs'
+logFolder = 'logs/'
 
 countdown0 = '/opt/SelfPiBox/assets/countdown/0.png'
 countdown1 = '/opt/SelfPiBox/assets/countdown/1.png'
