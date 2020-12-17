@@ -1,3 +1,17 @@
+#
+# .gitignore user
+#
+assets/background/*
+!assets/background/event.png
+selfies/*
+logs/*
+
+!.gitignore
+
+#
+# .gitignore Python generic
+#
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
