@@ -45,24 +45,18 @@ class Configuration():
         logging.info('Begin the configuration')
 
         # Setup GPIO (Input/Output of the Raspberry PI)
-        if with_gpio:
-            GPIO.setmode(GPIO.BCM)
-            GPIO.setwarnings(False)
-            GPIO.setup(cls.BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-            GPIO.setup(cls.LED_PIN, GPIO.OUT, initial=GPIO.LOW)
-            GPIO.setup(cls.NIGHT_MODE_PIN, GPIO.OUT, initial=GPIO.LOW)
-            logging.info('GPIO configured')
-        else:
-            logging.info('GPIO configuration skipped')
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
+        GPIO.setup(cls.BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(cls.LED_PIN, GPIO.OUT, initial=GPIO.LOW)
+        GPIO.setup(cls.NIGHT_MODE_PIN, GPIO.OUT, initial=GPIO.LOW)
+        logging.info('GPIO configured')
 
-        if with_pygame:
-            # Setup PyGame (
-            pygame.init()
-            cls.screen = pygame.display.set_mode((cls.SCREEN_WIDTH, cls.SCREEN_HEIGHT), pygame.FULLSCREEN)
-            pygame.mouse.set_visible(0)
-            logging.info('pygame configured')
-        else:
-            logging.info('pygame configuration skipped')
+        # Setup PyGame (
+        pygame.init()
+        cls.screen = pygame.display.set_mode((cls.SCREEN_WIDTH, cls.SCREEN_HEIGHT), pygame.FULLSCREEN)
+        pygame.mouse.set_visible(0)
+        logging.info('pygame configured')
 
         # check if the Image and Event folders exist and create one if they don't
         image_path = os.path.join(cls.SCRIPT_PATH, cls.IMAGE_FOLDER)

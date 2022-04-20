@@ -8,33 +8,36 @@ import picamera
 
 from .Configuration import Configuration
 from .UserInterface import UserInterface
-
+import pygame
 
 class Camera():
-
     COUNTDOWN_TIMER = [
         '/opt/SelfPiBox/assets/countdown/0.png',
-        '/opt/SelfPiBox/assets/countdown/0.png',
-        '/opt/SelfPiBox/assets/countdown/0.png',
-        '/opt/SelfPiBox/assets/countdown/0.png'
+        '/opt/SelfPiBox/assets/countdown/1.png',
+        '/opt/SelfPiBox/assets/countdown/2.png',
+        '/opt/SelfPiBox/assets/countdown/3.png'
     ]
+
 
     @classmethod
     def wait_for_event(cls):
-        global pygame
+        while pygame.mouse.get_pressed() == (0, 0, 0):
+            continue
 
-        NotEvent = True
-        while NotEvent:
-            input_state = GPIO.input(Configuration.BUTTON_PIN)
-            if input_state == False:
-                NotEvent = False
-                return
-            time.sleep(1)
+
+    # @classmethod
+    # def wait_for_event(cls):
+    #     while True:
+    #         input_state = GPIO.input(Configuration.BUTTON_PIN)
+    #
+    #         if not input_state:
+    #             return
+    #         time.sleep(1)
 
     @classmethod
     def take_picture(cls):
         try:
-            ### Camera Start ###
+            # Camera Start #
             GPIO.output(Configuration.LED_PIN, GPIO.HIGH)
             camera = picamera.PiCamera()
 
@@ -59,7 +62,7 @@ class Camera():
             # generate filename
             time_stamp = time.time()
             image_path = os.path.join(Configuration.SCRIPT_PATH, Configuration.IMAGE_FOLDER, Configuration.EVENT_FOLDER,
-                                     str(datetime.fromtimestamp(time_stamp)) + ".jpeg")
+                                      str(datetime.fromtimestamp(time_stamp)) + ".jpeg")
 
             # blink 3 times and take picture
             GPIO.output(Configuration.LED_PIN, GPIO.HIGH)
