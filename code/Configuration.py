@@ -15,7 +15,6 @@ class Configuration():
     EVENT_FOLDER = 'event'
     EVENT_IMAGE = SCRIPT_PATH + '/assets/background/event.png'
     LOG_FOLDER = 'logs/'
-    print(SCRIPT_PATH)
 
     # PIN button for your I/O commands
     BUTTON_PIN = 26
