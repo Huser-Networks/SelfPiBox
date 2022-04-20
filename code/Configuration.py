@@ -10,11 +10,12 @@ class Configuration():
     Class for the global configuration of the SelfPiBox
     """
     # Path used
-    SCRIPT_PATH = "/opt/SelfPiBox"
+    SCRIPT_PATH = str(os.getcwd())
     IMAGE_FOLDER = 'selfies'
     EVENT_FOLDER = 'event'
-    EVENT_IMAGE = '/opt/SelfPiBox/assets/background/event.png'
+    EVENT_IMAGE = SCRIPT_PATH + '/assets/background/event.png'
     LOG_FOLDER = 'logs/'
+    print(SCRIPT_PATH)
 
     # PIN button for your I/O commands
     BUTTON_PIN = 26
@@ -39,7 +40,7 @@ class Configuration():
         """
         # Setup Logging
         logging.basicConfig(filename=cls.LOG_FOLDER + 'SelfPiBox.log', level=logging.DEBUG)
-        logging.basicConfig(format='%(asctime)s %(message)s')
+        logging.basicConfig(format='%(asctime)s %(clientip)-15s %(user)-8s %(message)s')
 
         logging.info('Starting SelfPiBox')
         logging.info('Begin the configuration')

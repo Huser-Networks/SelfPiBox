@@ -18,12 +18,13 @@ class Camera():
         '/opt/SelfPiBox/assets/countdown/3.png'
     ]
 
-
     @classmethod
     def wait_for_event(cls):
-        while pygame.mouse.get_pressed() == (0, 0, 0):
-            continue
-
+        while True:
+            event = pygame.event.wait()
+            if event.type == pygame.KEYDOWN:
+                logging.info('taking picture')
+                return
 
     # @classmethod
     # def wait_for_event(cls):
