@@ -32,6 +32,13 @@ You can use `tightvncserver`as a virtual screen. Your screen must have a resolut
 
 `tightvncserver -geometry 1920x1080`
 
+## Testing on ssh with screen attached
+Get the value of `echo $DISPLAY` on the raspberry (not from ssh)
+
+On SSH type `export DISPLAY=<value>` and replace <value> with value of `echo $DISPLAY`
+
+Launch `python SelfPiBox.py`
+
 ## Testing camera
 You can test the camera by typing :
 ```python
