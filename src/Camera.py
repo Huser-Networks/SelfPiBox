@@ -10,6 +10,7 @@ from .Configuration import Configuration
 from .UserInterface import UserInterface
 import pygame
 
+
 class Camera():
     COUNTDOWN_TIMER = [
         '/opt/SelfPiBox/assets/countdown/0.png',
