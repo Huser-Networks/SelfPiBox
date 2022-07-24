@@ -1,5 +1,4 @@
 import logging
-import time
 
 import RPi.GPIO as GPIO
 
@@ -25,8 +24,4 @@ class Event:
         This is the method that "wait" for the user input before taking a picture (it actually blocks the code). it will check every seconds if the button is pressed. If the button is pressed, it will stop "waiting"
         :return:
         """
-        while True:
-            input_state = GPIO.input(GpioConfig.BUTTON_PIN)
-            if not input_state:
-                return
-            time.sleep(1)
+        GPIO.wait_for_edge(GpioConfig.BUTTON_PIN, GPIO.FALLING)
