@@ -1,4 +1,4 @@
-from .src.selfy_box import SelfyBox
+from src.selfy_box import SelfyBox
 
 
 def main():
