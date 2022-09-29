@@ -75,13 +75,11 @@ def InitFolder():
 
 
 def WaitForEvent():
-    logging.debug('Waiting...')
+    global pygame
     NotEvent = True
     while NotEvent:
         input_state = GPIO.input(BUTTON_PIN)
-        logging.debug('Input state : ' + str(input_state))
-        if not input_state:
-            logging.debug('Button pressed ! ')
+        if input_state == False:
             NotEvent = False
             return
         time.sleep(1)
