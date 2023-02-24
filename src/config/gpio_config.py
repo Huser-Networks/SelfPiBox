@@ -29,8 +29,8 @@ class GpioConfig:
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
         GPIO.setup(cls.BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-        GPIO.setup(cls.LED_PIN, GPIO.OUT, initial=GPIO.LOW)
+        GPIO.setup(cls.LED_PIN, GPIO.OUT, initial=GPIO.HIGH)
         GPIO.setup(cls.SHUTDOWN_PIN, GPIO.OUT, initial=GPIO.LOW)
-        GPIO.setup(cls.SHUTDOWN_LED_PIN, GPIO.OUT, initial=GPIO.LOW)
+        GPIO.setup(cls.SHUTDOWN_LED_PIN, GPIO.OUT, initial=GPIO.HIGH)
         logging.info('GPIO configured')
 
