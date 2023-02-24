@@ -16,7 +16,7 @@ class Wlan:
         This method check if the pi is connected to a wlan interface and if no it will set up an Access Point (AP)
         """
         cls.is_eth_up()
-        if cls.is_wlan_up():
+        if not cls.is_wlan_up():
             cls.create_access_point()
 
     @classmethod
