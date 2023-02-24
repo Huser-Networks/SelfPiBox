@@ -37,7 +37,7 @@ Get the value of `echo $DISPLAY` on the raspberry (not from ssh)
 
 On SSH type `export DISPLAY=<value>` and replace <value> with value of `echo $DISPLAY`
 
-Launch `python SelfPiBox.py`
+Launch `python main.py`
 
 ## Testing camera
 You can test the camera by typing :
