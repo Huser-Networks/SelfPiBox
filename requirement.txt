@@ -1,4 +1,4 @@
 picamera
 pygame==2.1.2
 RPi.GPIO==0.7.1
-dotenv
+python-dotenv
