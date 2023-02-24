@@ -4,7 +4,6 @@ from .config.selfy_config import SelfyConfig
 from .handlers.camera import Camera
 from .handlers.event import Event
 from .handlers.screen import Screen
-from .handlers.wlan import Wlan
 
 
 class SelfyBox:
@@ -17,8 +16,6 @@ class SelfyBox:
         Run a thread that wait for the user input
         """
         try:
-            SelfyConfig.set_up(with_gpio=True, with_pygame=True)
-            Screen.display_image(file=SelfyConfig.EVENT_IMAGE)
             while True:
                 Event.wait_for_event()
                 Camera.take_picture()
@@ -27,8 +24,12 @@ class SelfyBox:
 
     @classmethod
     def start_box(cls):
-        # configure the WLAN by setting up an AP if no WLAN connection exists
-        Wlan.configure_wlan()
+        """
+        Main function for handling the software
+        """
+        # global configuration
+        SelfyConfig.set_up(with_gpio=True, with_pygame=True)
+        Screen.display_image(file=SelfyConfig.EVENT_IMAGE)
 
         # creating threads
         selfy_box_thread = threading.Thread(target=cls.run_program, name='selfy_box_thread')

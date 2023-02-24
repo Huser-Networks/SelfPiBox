@@ -21,6 +21,10 @@ class Wlan:
 
     @classmethod
     def is_eth_up(cls):
+        """
+        Check if the ethernet interface is up and running
+        :return boolean: if the ethernet interface is up and running
+        """
         addrs = psutil.net_if_stats()
         is_eth_up = addrs['eth0'].isup
         if is_eth_up:
@@ -31,6 +35,10 @@ class Wlan:
 
     @classmethod
     def is_wlan_up(cls):
+        """
+        Check if the wireless interface is up and running
+        :return boolean: if the ethernet interface is up and running
+        """
         addrs = psutil.net_if_stats()
         is_wlan_up = addrs['wlan0'].isup
         if is_wlan_up:
@@ -41,6 +49,9 @@ class Wlan:
 
     @classmethod
     def create_access_point(cls):
+        """
+        Create an Access Point (AP) for the raspberry PI
+        """
         # TODO: library seems not to work
         access_point = pyaccesspoint.AccessPoint(
             wlan=WlanConfig.NETWORK_INTERFACE,

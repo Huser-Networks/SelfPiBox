@@ -5,6 +5,7 @@ from datetime import datetime
 
 from src.config.gpio_config import GpioConfig
 from src.config.screen_config import ScreenConfig
+from src.handlers.wlan import Wlan
 
 
 class SelfyConfig:
@@ -21,7 +22,7 @@ class SelfyConfig:
     @classmethod
     def set_up(cls, with_gpio: bool = True, with_pygame: bool = True):
         """
-        Create an inital configuration for the selfpiboy
+        Create an initial configuration for the selfpiboy
         """
         # Setup Logging
         logging.basicConfig(filename=cls.LOG_FOLDER + 'SelfPiBox.log', level=logging.DEBUG)
@@ -29,6 +30,9 @@ class SelfyConfig:
 
         logging.info('Starting SelfPiBox')
         logging.info('Begin the configuration')
+
+        # configure the WLAN by setting up an AP if no WLAN connection exists
+        Wlan.configure_wlan()
 
         # Setup GPIO (Input/Output of the Raspberry PI)
         if with_gpio:
