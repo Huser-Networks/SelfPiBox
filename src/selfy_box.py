@@ -1,8 +1,10 @@
+import threading
+
 from .config.selfy_config import SelfyConfig
 from .handlers.camera import Camera
-from .handlers.screen import Screen
 from .handlers.event import Event
-import threading
+from .handlers.screen import Screen
+from .handlers.wlan import Wlan
 
 
 class SelfyBox:
@@ -25,6 +27,9 @@ class SelfyBox:
 
     @classmethod
     def start_box(cls):
+        # configure the WLAN by setting up an AP if no WLAN connection exists
+        Wlan.configure_wlan()
+
         # creating threads
         selfy_box_thread = threading.Thread(target=cls.run_program, name='selfy_box_thread')
 
