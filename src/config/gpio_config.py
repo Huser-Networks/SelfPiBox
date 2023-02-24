@@ -9,6 +9,7 @@ class GpioConfig:
     """
     BUTTON_PIN = 26
     LED_PIN = 13
+    # TODO : TEJ
     NIGHT_MODE_PIN = 21
 
     @classmethod
