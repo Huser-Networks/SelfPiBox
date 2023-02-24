@@ -5,15 +5,17 @@ import RPi.GPIO as GPIO
 
 from dotenv import load_dotenv
 from pathlib import Path
+
 dotenv_path = Path('.env')
 load_dotenv(dotenv_path=dotenv_path)
+
 
 class GpioConfig:
     """
     Gpio configuration for the SelfyBox
     """
-    BUTTON_PIN = os.getenv('BUTTON_PIN')
-    LED_PIN = os.getenv('LED_PIN')
+    BUTTON_PIN = int(os.getenv('BUTTON_PIN'))
+    LED_PIN = int(os.getenv('LED_PIN'))
 
     @classmethod
     def set_up(cls):
