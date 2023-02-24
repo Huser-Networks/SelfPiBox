@@ -1,4 +1,4 @@
-import time
+from time import sleep
 
 import RPi.GPIO as GPIO
 import pygame
@@ -25,17 +25,17 @@ class Screen:
         pygame.display.flip()
 
     @classmethod
-    def start_countdown(cls, countdown: int = 3):
+    def start_countdown(cls, countdown: int = 4):
         """
         Launch the countdown before taking the picture
         :param countdown: how long we need to wait ! be careful to have a corresponding screen in assets/countdown !
         """
         for i in reversed(range(countdown)):
+            GPIO.output(GpioConfig.LED_PIN, GPIO.HIGH)
             cls.display_image(ScreenConfig.COUNTDOWN_TIMER[i])
             if i == 0:
                 # when the countdown reaches 0, we take the picture directly we do not wait one extra seconds
                 return
-            GPIO.output(GpioConfig.LED_PIN, GPIO.HIGH)
-            time.sleep(0.5)
+            sleep(0.5)
             GPIO.output(GpioConfig.LED_PIN, GPIO.LOW)
-            time.sleep(0.5)
+            sleep(0.5)
