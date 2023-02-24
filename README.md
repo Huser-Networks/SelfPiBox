@@ -1,6 +1,10 @@
 # SelfPiBox
 PhotoBooth for Party selfies with a Raspberry Pi and RPi Camera written in Python
 
+## Prerequisite
+
+`sudo apt install python3 python-is-python3 libsdl2-image-2.0-0`
+
 ## Installation
 On a fresh new Raspberry Pi Os updated & upgraded no package installation is required. 
 
@@ -18,7 +22,9 @@ Navigate into SelfPiBox folder freshly created and launch the script :
 
 `cd SelfPiBox`
 
-`python SelfPiBox`
+`pip install -r requirements.txt`
+
+`python main`
 
 You can use the startup script to launch it at boot.
 
