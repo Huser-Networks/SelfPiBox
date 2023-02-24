@@ -19,7 +19,7 @@ class Camera:
         We create the camera instance for preparing taking the picture
         :return:
         """
-        GPIO.output(GpioConfig.LED_PIN, GPIO.HIGH)
+        GPIO.output(GpioConfig.LED_PIN, GPIO.LOW)
         camera = picamera.PiCamera()
 
         # Initialise the camera object
@@ -28,7 +28,7 @@ class Camera:
         camera.vflip = False
         camera.hflip = False
         camera.awb_mode = 'auto'
-        GPIO.output(GpioConfig.LED_PIN, GPIO.LOW)
+        GPIO.output(GpioConfig.LED_PIN, GPIO.HIGH)
 
         return camera
 

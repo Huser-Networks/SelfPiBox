@@ -31,11 +31,11 @@ class Screen:
         :param countdown: how long we need to wait ! be careful to have a corresponding screen in assets/countdown !
         """
         for i in reversed(range(countdown)):
-            GPIO.output(GpioConfig.LED_PIN, GPIO.HIGH)
+            GPIO.output(GpioConfig.LED_PIN, GPIO.LOW)
             cls.display_image(ScreenConfig.COUNTDOWN_TIMER[i])
             if i == 0:
                 # when the countdown reaches 0, we take the picture directly we do not wait one extra seconds
                 return
             sleep(0.5)
-            GPIO.output(GpioConfig.LED_PIN, GPIO.LOW)
+            GPIO.output(GpioConfig.LED_PIN, GPIO.HIGH)
             sleep(0.5)
