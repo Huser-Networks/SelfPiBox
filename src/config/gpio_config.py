@@ -1,15 +1,19 @@
 import logging
+import os
 
 import RPi.GPIO as GPIO
 
+from dotenv import load_dotenv
+from pathlib import Path
+dotenv_path = Path('.env')
+load_dotenv(dotenv_path=dotenv_path)
 
 class GpioConfig:
     """
     Gpio configuration for the SelfyBox
     """
-    BUTTON_PIN = 26
-    LED_PIN = 13
-    SHUTDOWN_PIN = 6
+    BUTTON_PIN = os.getenv('BUTTON_PIN')
+    LED_PIN = os.getenv('LED_PIN')
 
     @classmethod
     def set_up(cls):
@@ -23,4 +27,3 @@ class GpioConfig:
         GPIO.setup(cls.BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         GPIO.setup(cls.LED_PIN, GPIO.OUT, initial=GPIO.LOW)
         logging.info('GPIO configured')
-
