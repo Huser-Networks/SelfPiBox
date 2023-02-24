@@ -16,6 +16,8 @@ class GpioConfig:
     """
     BUTTON_PIN = int(os.getenv('BUTTON_PIN'))
     LED_PIN = int(os.getenv('LED_PIN'))
+    SHUTDOWN_PIN = int(os.getenv('SHUTDOWN_PIN'))
+    SHUTDOWN_LED_PIN = int(os.getenv('SHUTDOWN_LED_PIN'))
 
     @classmethod
     def set_up(cls):
@@ -28,4 +30,7 @@ class GpioConfig:
         GPIO.setwarnings(False)
         GPIO.setup(cls.BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         GPIO.setup(cls.LED_PIN, GPIO.OUT, initial=GPIO.LOW)
+        GPIO.setup(cls.SHUTDOWN_PIN, GPIO.OUT, initial=GPIO.LOW)
+        GPIO.setup(cls.SHUTDOWN_LED_PIN, GPIO.OUT, initial=GPIO.LOW)
         logging.info('GPIO configured')
+
