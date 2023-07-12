@@ -6,7 +6,7 @@ Description=SelfPiBox Service Daemon for Raspberry Pi
 [Service]
 Type=simple
 
-User=pi
+User=root
 ExecStart=/usr/bin/python3 /opt/SelfPiBox/main.py
 
 Restart=always
