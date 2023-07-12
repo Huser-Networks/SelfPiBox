@@ -19,7 +19,6 @@ class Camera:
         We create the camera instance for preparing taking the picture
         :return:
         """
-        GPIO.output(GpioConfig.LED_PIN, GPIO.HIGH)
         camera = picamera.PiCamera()
 
         # Initialise the camera object
@@ -37,14 +36,18 @@ class Camera:
         """
         Full process for taking the picture
         """
+        logging.debug("Taking picture")
         try:
             camera = cls.start_camera()
             Screen.start_countdown()
 
             image_path = SelfyConfig.generate_image_path()
+
+            GPIO.output(GpioConfig.LED_PIN, GPIO.HIGH)
             camera.start_preview(fullscreen=True)
 
             camera.capture(image_path, format='jpeg', quality=100, thumbnail=(64, 48, 35))
+            GPIO.output(GpioConfig.LED_PIN, GPIO.LOW)
             camera.stop_preview()
             camera.close()
 

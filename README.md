@@ -1,10 +1,14 @@
 # SelfPiBox
 PhotoBooth for Party selfies with a Raspberry Pi and RPi Camera written in Python
 
+## Prerequisite
+
+`sudo apt install python3 python-is-python3 libsdl2-image-2.0-0`
+
 ## Installation
 On a fresh new Raspberry Pi Os updated & upgraded no package installation is required. 
 
-You have to activate Camera Interface running 
+You have to activate Camera Interface running
 
 `sudo raspi-config`
 
@@ -18,7 +22,9 @@ Navigate into SelfPiBox folder freshly created and launch the script :
 
 `cd SelfPiBox`
 
-`python SelfPiBox`
+`pip install -r requirements.txt`
+
+`python main`
 
 You can use the startup script to launch it at boot.
 
@@ -37,7 +43,7 @@ Get the value of `echo $DISPLAY` on the raspberry (not from ssh)
 
 On SSH type `export DISPLAY=<value>` and replace <value> with value of `echo $DISPLAY`
 
-Launch `python SelfPiBox.py`
+Launch `python main.py`
 
 ## Testing camera
 You can test the camera by typing :
@@ -53,5 +59,9 @@ camera.stop_preview()
 ```
 The camera will show the image for 10 seconds.
 
-### Default Event Image 
+## Optional
+hostapd to create a wifi access point.
+
+
+## Default Event Image 
 [Original Flickr image](https://flic.kr/p/LhSZBG) of [event.png](assets/background/event.png) that was resized in 4:3. 
