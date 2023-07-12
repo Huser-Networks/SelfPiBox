@@ -1,10 +1,10 @@
 [Unit]
 
 Description=SelfPiBox Service Daemon for Raspberry Pi
-After=graphical.target
+#After=graphical.target
 
 [Service]
-Type=idle
+Type=simple
 
 User=pi
 ExecStart=/usr/bin/python3 /opt/SelfPiBox/main.py
@@ -12,11 +12,11 @@ ExecStart=/usr/bin/python3 /opt/SelfPiBox/main.py
 Restart=always
 RestartSec=60
 
-Environment=BUTTON_PIN=26
+Environment=BUTTON_PIN=6
 Environment=LED_PIN=13
 Environment=SELFPIBOX_PATH=/opt/SelfPiBox
-Environment=XAUTHORITY=/var/run/lightdm/root/:0
-Environment=DISPLAY=:0
+#Environment=XAUTHORITY=/var/run/lightdm/root/:0
+#Environment=DISPLAY=:0
 
 [Install]
 WantedBy=multi-user.target

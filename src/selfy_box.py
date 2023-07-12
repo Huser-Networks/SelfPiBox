@@ -1,3 +1,4 @@
+import logging
 from .config.selfy_config import SelfyConfig
 from .handlers.camera import Camera
 from .handlers.screen import Screen
@@ -16,7 +17,9 @@ class SelfyBox:
         """
         try:
             SelfyConfig.set_up(with_gpio=True, with_pygame=True)
+            logging.debug('Display background image')
             Screen.display_image(file=SelfyConfig.EVENT_IMAGE)
+            logging.debug('Start waiting for event')
             while True:
                 Event.wait_for_event()
                 Camera.take_picture()

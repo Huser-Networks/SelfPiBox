@@ -26,7 +26,7 @@ class SelfyConfig:
         # Setup Logging
         if not os.path.exists(cls.LOG_FOLDER):
             os.makedirs(cls.LOG_FOLDER)
-        logging.basicConfig(filename=cls.LOG_FOLDER + 'SelfPiBox.log', level=logging.DEBUG)
+        logging.basicConfig(filename=cls.LOG_FOLDER + 'SelfPiBox2.log', level=logging.DEBUG)
         logging.basicConfig(format='%(asctime)s %(clientip)-15s %(user)-8s %(message)s')
 
         logging.info('Starting SelfPiBox')

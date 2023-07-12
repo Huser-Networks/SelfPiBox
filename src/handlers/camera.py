@@ -37,6 +37,7 @@ class Camera:
         """
         Full process for taking the picture
         """
+        logging.debug("Taking picture")
         try:
             camera = cls.start_camera()
             Screen.start_countdown()
