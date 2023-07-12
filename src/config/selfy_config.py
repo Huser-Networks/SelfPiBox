@@ -12,11 +12,11 @@ class SelfyConfig:
     Class for the global configuration of the SelfyBox
     """
     # Path used
-    SCRIPT_PATH = str(os.getcwd())
+    SCRIPT_PATH = os.getenv('SELFPIBOX_PATH')
     IMAGE_FOLDER = 'selfies'
     EVENT_FOLDER = 'event'
     EVENT_IMAGE = SCRIPT_PATH + '/assets/background/event.png'
-    LOG_FOLDER = 'logs/'
+    LOG_FOLDER = SCRIPT_PATH + '/logs/'
 
     @classmethod
     def set_up(cls, with_gpio: bool = True, with_pygame: bool = True):
@@ -24,6 +24,8 @@ class SelfyConfig:
         Create an inital configuration for the selfpiboy
         """
         # Setup Logging
+        if not os.path.exists(cls.LOG_FOLDER):
+            os.makedirs(cls.LOG_FOLDER)
         logging.basicConfig(filename=cls.LOG_FOLDER + 'SelfPiBox.log', level=logging.DEBUG)
         logging.basicConfig(format='%(asctime)s %(clientip)-15s %(user)-8s %(message)s')
 

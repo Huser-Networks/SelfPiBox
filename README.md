@@ -8,7 +8,7 @@ PhotoBooth for Party selfies with a Raspberry Pi and RPi Camera written in Pytho
 ## Installation
 On a fresh new Raspberry Pi Os updated & upgraded no package installation is required. 
 
-You have to activate Camera Interface running 
+You have to activate Camera Interface running
 
 `sudo raspi-config`
 
@@ -59,5 +59,9 @@ camera.stop_preview()
 ```
 The camera will show the image for 10 seconds.
 
-### Default Event Image 
+## Optional
+hostapd to create a wifi access point.
+
+
+## Default Event Image 
 [Original Flickr image](https://flic.kr/p/LhSZBG) of [event.png](assets/background/event.png) that was resized in 4:3. 
